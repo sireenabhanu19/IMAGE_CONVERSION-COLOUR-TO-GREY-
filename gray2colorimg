@@ -1,0 +1,28 @@
+% Read a color image
+img = imread('imagep.jpg');
+
+% Convert to grayscale
+gray_img = rgb2gray(img);
+
+% Convert grayscale to RGB with different color channels
+R = uint8(1.5 * gray_img); % Increase Red intensity
+G = uint8(0.5 * gray_img); % Reduce Green intensity
+B = uint8(0.8 * gray_img); % Slightly reduce Blue intensity
+
+% Create a new RGB image with modified values
+new_rgb_img = cat(3, R, G, B);
+
+% Display Original, Grayscale, and Modified RGB images
+figure;
+
+subplot(1, 3, 1);
+imshow(img);
+title('Original Image');
+
+subplot(1, 3, 2);
+imshow(gray_img);
+title('Grayscale Image');
+
+subplot(1, 3, 3);
+imshow(new_rgb_img);
+title('Modified RGB Image');
